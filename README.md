@@ -2,13 +2,6 @@
 
 A modern, responsive portfolio website showcasing my journey as a Generative AI and Software Engineer. Built with cutting-edge web technologies and stunning visual effects to reflect my passion for innovation in artificial intelligence.
 
-## 🌟 Live Demo
-
-[**View Live Portfolio →**](https://your-portfolio-url.com) *(Replace with your actual deployed URL)*
-
-## 📸 Preview
-
-![Portfolio Preview](https://via.placeholder.com/800x400/1a0b2e/8b5cf6?text=Portfolio+Preview) *(Add your actual screenshot)*
 
 ## ✨ Features
 
