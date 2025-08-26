@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melisa Sever - AI Engineer Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Animated gradient background */
+        .main-container {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #0a0a0a, #1a0b2e, #16213e, #0f3460);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(139, 92, 246, 0.6);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .particle:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; }
+        .particle:nth-child(2) { top: 60%; left: 80%; animation-delay: 2s; }
+        .particle:nth-child(3) { top: 40%; left: 60%; animation-delay: 4s; }
+        .particle:nth-child(4) { top: 80%; left: 30%; animation-delay: 1s; }
+        .particle:nth-child(5) { top: 10%; left: 70%; animation-delay: 3s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.8; }
+        }
+        
+        /* Glowing orbs */
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+            animation: pulse 4s ease-in-out infinite alternate;
+        }
+        
+        .orb1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #8b5cf6, transparent);
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .orb2 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, #ec4899, transparent);
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+        
+        .orb3 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, #3b82f6, transparent);
+            bottom: 20%;
+            left: 30%;
+            animation-delay: 1s;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.3; }
+            100% { transform: scale(1.2); opacity: 0.1; }
+        }
+        
+        .content {
+            position: relative;
+            z-index: 10;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header styles */
+        .header {
+            text-align: center;
+            padding: 4rem 0 6rem;
+            margin-bottom: 4rem;
+        }
+        
+        .name {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #8b5cf6, #ec4899, #3b82f6);
+            background-size: 200% 200%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 3s ease infinite;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .title {
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            font-weight: 300;
+            color: #e5e7eb;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+        }
+        
+        .subtitle {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            color: #a855f7;
+            font-weight: 500;
+            opacity: 0;
+            animation: fadeInUp 1s ease 1s forwards;
+            position: relative;
+        }
+        
+        .subtitle::after {
+            content: '';
+            width: 8px;
+            height: 20px;
+            background: #a855f7;
+            display: inline-block;
+            margin-left: 8px;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Section styles */
+        .section {
+            margin-bottom: 5rem;
+            padding: 3rem;
+            background: rgba(17, 24, 39, 0.4);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInSection 1s ease forwards;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            border-color: rgba(139, 92, 246, 0.4);
+            box-shadow: 0 30px 60px rgba(139, 92, 246, 0.1);
+        }
+        
+        @keyframes fadeInSection {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.4s; }
+        .section:nth-child(4) { animation-delay: 0.6s; }
+        .section:nth-child(5) { animation-delay: 0.8s; }
+        .section:nth-child(6) { animation-delay: 1s; }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #a855f7;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #8b5cf6, #ec4899);
+            border-radius: 2px;
+        }
+        
+        /* Skills grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .skill-category {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(100, 116, 139, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: rgba(139, 92, 246, 0.5);
+        }
+        
+        .skill-category-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #60a5fa;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+        }
+        
+        .skill-tag {
+            background: linear-gradient(135deg, #1f2937, #374151);
+            color: #e5e7eb;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(75, 85, 99, 0.5);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        
+        .skill-tag:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            border-color: rgba(139, 92, 246, 0.8);
+            box-shadow: 0 5px 20px rgba(139, 92, 246, 0.3);
+        }
+        
+        /* Projects grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(17, 24, 39, 0.8));
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .project-card:hover::before {
+            left: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(139, 92, 246, 0.6);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+        }
+        
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #60a5fa;
+            margin-bottom: 1rem;
+        }
+        
+        .project-description {
+            color: #d1d5db;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-tag {
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            color: #a855f7;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .project-link:hover {
+            color: #ec4899;
+            transform: translateX(5px);
+        }
+        
+        /* Experience timeline */
+        .experience-timeline {
+            position: relative;
+            margin-top: 2rem;
+        }
+        
+        .experience-item {
+            background: rgba(30, 41, 59, 0.6);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #8b5cf6;
+            transition: all 0.3s ease;
+        }
+        
+        .experience-item:hover {
+            transform: translateX(10px);
+            border-left-color: #ec4899;
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .experience-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #60a5fa;
+        }
+        
+        .experience-company {
+            font-size: 1.1rem;
+            color: #9ca3af;
+            font-weight: 500;
+        }
+        
+        .experience-dates {
+            color: #6b7280;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .experience-description {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .experience-description li {
+            color: #d1d5db;
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .experience-description li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #a855f7;
+            font-weight: bold;
+        }
+        
+        /* Contact section */
+        .contact-content {
+            text-align: center;
+        }
+        
+        .contact-description {
+            font-size: 1.2rem;
+            color: #d1d5db;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .contact-email {
+            display: inline-block;
+            font-size: 1.5rem;
+            color: #60a5fa;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            padding: 1rem 2rem;
+            background: rgba(96, 165, 250, 0.1);
+            border-radius: 50px;
+            border: 2px solid rgba(96, 165, 250, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-email:hover {
+            background: rgba(96, 165, 250, 0.2);
+            border-color: #60a5fa;
+            transform: scale(1.05);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
+            border-radius: 50%;
+            text-decoration: none;
+            color: #a855f7;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+        
+        .social-link:hover {
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            color: white;
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+        }
+        
+        .social-link svg {
+            width: 28px;
+            height: 28px;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(75, 85, 99, 0.3);
+            margin-top: 3rem;
+            color: #9ca3af;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .content {
+                padding: 1rem;
+            }
+            
+            .section {
+                padding: 2rem 1.5rem;
+                margin-bottom: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .social-links {
+                gap: 1.5rem;
+            }
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Floating particles -->
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        
+        <!-- Glowing orbs -->
+        <div class="glow-orb orb1"></div>
+        <div class="glow-orb orb2"></div>
+        <div class="glow-orb orb3"></div>
+        
+        <div class="content">
+            <!-- Header -->
+            <header class="header">
+                <h1 class="name">Melisa Sever</h1>
+                <p class="title">Generative AI Engineer & Software Engineer</p>
+                <p class="subtitle">Actively seeking new opportunities to build innovative AI solutions</p>
+            </header>
+            
+            <!-- About Section -->
+            <section class="section">
+                <h2 class="section-title">About Me</h2>
+                <p style="font-size: 1.1rem; color: #d1d5db; line-height: 1.7;">
+                    Hello! I'm a passionate Generative AI and Software Engineer with a knack for building intelligent systems. My journey began with a curiosity for how machines can learn and create, leading me to explore deep learning, natural language processing, and computer vision. I thrive on solving complex problems and turning innovative ideas into practical applications. I'm always eager to learn new technologies and contribute to projects that push the boundaries of what's possible.
+                </p>
+            </section>
+            
+            <!-- Experience Section -->
+            <section class="section">
+                <h2 class="section-title">Experience</h2>
+                <div class="experience-timeline">
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="experience-title">Generative AI Engineer</h3>
+                                <p class="experience-company">Reality Agent Labs</p>
+                            </div>
+                            <span class="experience-dates">December 2024 - Present</span>
+                        </div>
+                        <ul class="experience-description">
+                            <li>Developed Marvel AI, an open-source platform using Python, LangChain, and FastAPI to automate grading and content creation for educators.</li>
+                            <li>Supported a user base of over 500+ and increased platform engagement by 30%, resulting in 100+ GitHub forks.</li>
+                            <li>Enhanced engagement among underrepresented user groups by 20% through personalized AI interactions and NLP-driven analytics.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="experience-title">Software Engineer</h3>
+                                <p class="experience-company">Radical AI</p>
+                            </div>
+                            <span class="experience-dates">December 2022 - November 2024</span>
+                        </div>
+                        <ul class="experience-description">
+                            <li>Engineered Gemini Quizify, an AI-powered tool that transforms uploaded assignments into interactive quizzes with real-time feedback, demonstrably improving student learning outcomes.</li>
+                            <li>Utilized Python and LangChain for dynamic question generation and implemented FastAPI to provide low-latency, real-time feedback.</li>
+                            <li>Deployed scalable AI platforms on Google Cloud Platform (GCP), ensuring robust performance and high reliability.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="experience-title">Frontend Developer</h3>
+                                <p class="experience-company">Pixagor Data Center and Software Services Inc.</p>
+                            </div>
+                            <span class="experience-dates">June 2022 - November 2022</span>
+                        </div>
+                        <ul class="experience-description">
+                            <li>Launched a React-based doctor appointment application, which increased online bookings by 30% in a single month.</li>
+                            <li>Enhanced user satisfaction by 35% by improving interactivity and developing dynamic components with modern frontend frameworks.</li>
+                            <li>Led Scrum planning and agile coordination, accelerating project delivery timelines by 25%.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section class="section">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3 class="project-title">Advanced 3D AI Robotic Arm with Computer Vision Integration</h3>
+                        <p class="project-description">
+                            Trained a Deep Q-Network (DQN) for intelligent robotic arm control, achieving over 90% target accuracy. Optimized path planning to reduce energy consumption by 40%. Integrated a robust computer vision pipeline with OpenCV, enabling dynamic target acquisition with 5% detection error.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">DQN</span>
+                            <span class="tech-tag">OpenCV</span>
+                            <span class="tech-tag">Computer Vision</span>
+                        </div>
+                        <a href="https://github.com/melisasvr/AI-Powered-Robotic-Arm-Task-Optimization-with-Visualization" class="project-link" target="_blank" rel="noopener noreferrer">
+                            View Project →
+                        </a>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3 class="project-title">AI-Powered Drone Infrastructure Inspection</h3>
+                        <p class="project-description">
+                            Built an autonomous drone system leveraging computer vision and GPS to detect structural anomalies with 91% accuracy. Developed a real-time dashboard for live monitoring and automated anomaly reporting, cutting manual inspection time by 60%.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Computer Vision</span>
+                            <span class="tech-tag">GPS</span>
+                            <span class="tech-tag">Real-time Dashboard</span>
+                            <span class="tech-tag">Web Technologies</span>
+                        </div>
+                        <a href="https://github.com/melisasvr/AI-Powered-Drone-Inspection-System" class="project-link" target="_blank" rel="noopener noreferrer">
+                            View Project →
+                        </a>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3 class="project-title">AI-Driven Threat Detection System</h3>
+                        <p class="project-description">
+                            An AI-driven threat detection system designed to analyze network traffic and identify potential anomalies. Uses a machine learning model (Isolation Forest) to detect suspicious activities within a network by distinguishing between normal and abnormal traffic patterns.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">Isolation Forest</span>
+                            <span class="tech-tag">Network Security</span>
+                            <span class="tech-tag">Anomaly Detection</span>
+                        </div>
+                        <a href="https://github.com/melisasvr/AI-Driven-Threat-Detection-System" class="project-link" target="_blank" rel="noopener noreferrer">
+                            View Project →
+                        </a>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3 class="project-title">Autonomous Market Research Agent</h3>
+                        <p class="project-description">
+                            Developed a lightweight Python system to autonomously monitor competitors and market trends, generating weekly reports with 87% coverage accuracy. Implemented multi-source web scraping and automated Markdown report generation, reducing manual research time by 65%.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Web Scraping</span>
+                            <span class="tech-tag">Automation</span>
+                            <span class="tech-tag">Markdown</span>
+                        </div>
+                        <a href="https://github.com/melisasvr/Autonomous-Market-Research-Agent/tree/main" class="project-link" target="_blank" rel="noopener noreferrer">
+                            View Project →
+                        </a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Skills Section -->
+            <section class="section">
+                <h2 class="section-title">Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Languages</h3>
+                        <div class="skills-container">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">MERN Stack</span>
+                            <span class="skill-tag">SQLAlchemy</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">NLP/AI</h3>
+                        <div class="skills-container">
+                            <span class="skill-tag">LangChain</span>
+                            <span class="skill-tag">RAG</span>
+                            <span class="skill-tag">spaCy</span>
+                            <span class="skill-tag">Hugging Face</span>
+                            <span class="skill-tag">Vertex AI</span>
+                            <span class="skill-tag">OpenCV</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">Numpy</span>
+                            <span class="skill-tag">Matplotlib</span>
+                            <span class="skill-tag">sci-kit-learn</span>
+                            <span class="skill-tag">seaborn</span>
+                            <span class="skill-tag">NLTK</span>
+                            <span class="skill-tag">NLP</span>
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">PyTorch</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Frameworks/Tools</h3>
+                        <div class="skills-container">
+                            <span class="skill-tag">Vite.js</span>
+                            <span class="skill-tag">Google Cloud Platform</span>
+                            <span class="skill-tag">Redis</span>
+                            <span class="skill-tag">Flask</span>
+                            <span class="skill-tag">Django</span>
+                            <span class="skill-tag">Streamlit</span>
+                            <span class="skill-tag">Firebase</span>
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">Postman</span>
+                            <span class="skill-tag">GitHub</span>
+                            <span class="skill-tag">Docker</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">Soft Skills</h3>
+                        <div class="skills-container">
+                            <span class="skill-tag">Versatility</span>
+                            <span class="skill-tag">Teamwork</span>
+                            <span class="skill-tag">Innovation</span>
+                            <span class="skill-tag">Analytical Thinking</span>
+                            <span class="skill-tag">Leadership</span>
+                            <span class="skill-tag">Communication</span>
+                            <span class="skill-tag">Problem Solving</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Contact Section -->
+            <section class="section">
+                <h2 class="section-title">Contact Me</h2>
+                <div class="contact-content">
+                    <p class="contact-description">
+                        I'm always open to new opportunities and collaborations. Feel free to reach out!
+                    </p>
+                    <a href="mailto:melisasever2000@gmail.com" class="contact-email">
+                        melisasever2000@gmail.com
+                    </a>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/melisasever" class="social-link" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M22.23 0H1.77C.79 0 0 .78 0 1.76v20.48c0 .98.79 1.76 1.77 1.76h20.46c.98 0 1.77-.78 1.77-1.76V1.76c0-.98-.79-1.76-1.77-1.76zM7.5 20.5H3V9h4.5v11.5zM5.25 7.6c-1.38 0-2.25-1.07-2.25-2.43 0-1.39.87-2.43 2.3-2.43 1.44 0 2.25 1.04 2.25 2.43-.01 1.36-.88 2.43-2.3 2.43zM21 20.5h-4.5V14c0-1.2-.42-2.02-1.5-2.02-1.07 0-1.7 1-1.7 2.02v6.5h-4.5V9h4.5v2.16c.71-.97 1.72-2.16 3.8-2.16C19.7 9 21 10.42 21 13.5v7z"/>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/melisasvr" class="social-link" target="_blank" rel="noopener noreferrer" title="GitHub">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.6.111.82-.26.82-.577v-2.193c-3.335.723-4.041-1.61-4.041-1.61-.546-1.384-1.332-1.751-1.332-1.751-1.092-.745.083-.73.083-.73 1.205.085 1.838 1.238 1.838 1.238 1.07 1.832 2.809 1.303 3.493.993.109-.775.419-1.304.762-1.605-2.665-.304-5.466-1.334-5.466-5.931 0-1.31.468-2.381 1.236-3.224-.124-.304-.537-1.524.117-3.176 0 0 1.008-.323 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.29-1.553 3.297-1.23 3.297-1.23.655 1.652.241 2.872.118 3.176.77.843 1.233 1.914 1.233 3.224 0 4.609-2.806 5.624-5.474 5.921.432.373.819 1.102.819 2.228v3.293c0 .319.215.694.825.576 4.766-1.587 8.2-6.085 8.2-11.385C24 5.373 18.627 0 12 0z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Footer -->
+            <footer class="footer">
+                <p>&copy; 2025 Melisa Sever. Built with modern HTML, CSS & cutting-edge animations.</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
