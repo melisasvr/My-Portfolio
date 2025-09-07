@@ -1,10 +1,8 @@
 # 🚀 Melisa Sever - AI Engineer Portfolio
-
-A modern, responsive portfolio website showcasing my journey as a Generative AI and Software Engineer. Built with cutting-edge web technologies and stunning visual effects to reflect my passion for innovation in artificial intelligence.
-
+- A modern, responsive portfolio website showcasing my journey as a Generative AI and Software Engineer.
+- Built with cutting-edge web technologies and stunning visual effects to reflect my passion for innovation in artificial intelligence.
 
 ## ✨ Features
-
 ### 🎨 **Modern Design**
 - **Animated gradient background** with shifting colors
 - **Floating particles** and glowing orbs for dynamic visual effects
@@ -41,44 +39,35 @@ A modern, responsive portfolio website showcasing my journey as a Generative AI 
 portfolio/
 ├── index.html          # Main HTML file
 ├── README.md          # This file
-├── assets/            # Images and media files
-│   ├── images/        # Portfolio images
-│   └── icons/         # Social media icons
-└── docs/              # Documentation
 ```
 
 ## 📋 Sections
-
 ### 🎯 **About Me**
-Personal introduction highlighting my passion for AI and machine learning, emphasizing problem-solving skills and innovation drive.
+- Personal introduction highlighting my passion for AI and machine learning, emphasizing problem-solving skills and innovation drive.
 
 ### 💼 **Experience**
-Professional journey showcasing roles at:
+- Professional journey showcasing roles at:
 - **Reality Agent Labs** - Generative AI Engineer (Current)
 - **Radical AI** - Software Engineer
 - **Pixagor Data Center** - Frontend Developer
 
 ### 🔬 **Featured Projects**
-Showcase of key projects including:
+- Showcase of key projects including:
 - **Advanced 3D AI Robotic Arm** - DQN-based robotic control with computer vision
 - **AI-Powered Drone Infrastructure Inspection** - Autonomous anomaly detection system
 - **AI-Driven Threat Detection System** - Network security with machine learning
 - **Autonomous Market Research Agent** - Automated competitive analysis tool
 
 ### 🛠️ **Skills**
-Comprehensive technical skills organized by category:
+- Comprehensive technical skills organized by category:
 - **Languages** - Python, Java, C++, JavaScript, TypeScript, SQL
 - **AI/ML** - LangChain, PyTorch, TensorFlow, OpenCV, Hugging Face
 - **Frameworks** - React, Django, Flask, Node.js, FastAPI
 - **Cloud & Tools** - GCP, Docker, PostgreSQL, MongoDB
 
-### 📞 **Contact**
-Professional contact information with working email and social media links.
-
 ## 🎨 Customization
-
 ### **Colors**
-The portfolio uses a cohesive color scheme:
+- The portfolio uses a cohesive color scheme:
 - **Primary Purple**: `#8b5cf6` - Main accent color
 - **Secondary Pink**: `#ec4899` - Gradient accent
 - **Blue Accent**: `#60a5fa` - Text highlights
@@ -97,14 +86,12 @@ The portfolio uses a cohesive color scheme:
 - **Accent Text**: 600 font weight
 
 ## 📈 Performance
-
 - **Lightweight**: Minimal dependencies
 - **Fast Loading**: Optimized CSS and animations
 - **SEO Friendly**: Semantic HTML structure
 - **Accessible**: Proper ARIA labels and focus states
 
 ## 🔧 Browser Support
-
 - ✅ Chrome (recommended)
 - ✅ Firefox
 - ✅ Safari
@@ -112,14 +99,12 @@ The portfolio uses a cohesive color scheme:
 - ⚠️ Internet Explorer (limited support)
 
 ## 📱 Mobile Optimization
-
 - Responsive breakpoints for all screen sizes
 - Touch-optimized interactive elements
 - Optimized typography scaling
 - Mobile-first CSS approach
 
 ## 🌟 Future Enhancements
-
 - [ ] Add dark/light theme toggle
 - [ ] Implement blog section
 - [ ] Add project filtering functionality
@@ -130,23 +115,13 @@ The portfolio uses a cohesive color scheme:
 - [ ] Include analytics tracking
 
 ## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
+- This project is open source and available under the [MIT License](LICENSE).
 
 ## 🤝 Contributing
-
-While this is a personal portfolio, suggestions and feedback are welcome! Feel free to:
-
+- While this is a personal portfolio, suggestions and feedback are welcome! Feel free to:
 1. Fork the repository
 2. Create a feature branch
 3. Submit a pull request with improvements
-
-## 📞 Contact
-
-**Melisa Sever**
-- 📧 Email: [melisasever2000@gmail.com](mailto:melisasever2000@gmail.com)
-- 💼 LinkedIn: [linkedin.com/in/melisasever](https://linkedin.com/in/melisasever)
-- 🐱 GitHub: [github.com/melisasvr](https://github.com/melisasvr)
 
 ---
 
