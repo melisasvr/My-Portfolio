@@ -53,10 +53,10 @@ portfolio/
 
 ### 🔬 **Featured Projects**
 - Showcase of key projects including:
-- **Advanced 3D AI Robotic Arm** - DQN-based robotic control with computer vision
-- **AI-Powered Drone Infrastructure Inspection** - Autonomous anomaly detection system
-- **AI-Driven Threat Detection System** - Network security with machine learning
-- **Autonomous Market Research Agent** - Automated competitive analysis tool
+- **Decentralized AI Compute Network**: A decentralized network for AI computation, leveraging blockchain technology to distribute and manage machine learning tasks securely and efficiently.
+- **VR Language Learning System**: An immersive VR system to accelerate language acquisition. 
+- **AI-Agent for DAO Governance**: An intelligent AI agent designed to streamline decision-making in DAOs.
+- **Real-time Water Quality Monitoring**: A system that monitors water quality using IoT sensors and machine learning.
 
 ### 🛠️ **Skills**
 - Comprehensive technical skills organized by category:
@@ -104,15 +104,6 @@ portfolio/
 - Optimized typography scaling
 - Mobile-first CSS approach
 
-## 🌟 Future Enhancements
-- [ ] Add dark/light theme toggle
-- [ ] Implement blog section
-- [ ] Add project filtering functionality
-- [ ] Include testimonials section
-- [ ] Add contact form with backend integration
-- [ ] Implement smooth scroll navigation
-- [ ] Add loading animations
-- [ ] Include analytics tracking
 
 ## 📝 License
 - This project is open source and available under the [MIT License](LICENSE).
