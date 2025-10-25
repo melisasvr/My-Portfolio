@@ -334,6 +334,8 @@
             color: #d1d5db;
             line-height: 1.6;
             margin-bottom: 1.5rem;
+            min-height: 100px; /* Added to normalize card height */
+            font-size: 1.1rem; /* Increased font size */
         }
         
         .tech-tags {
@@ -411,11 +413,13 @@
             color: #6b7280;
             font-weight: 600;
             font-size: 0.9rem;
+            flex-shrink: 0; /* Prevents dates from wrapping weirdly */
         }
         
         .experience-description {
             list-style: none;
             padding: 0;
+            margin-top: 0.5rem; /* Added margin for spacing */
         }
         
         .experience-description li {
@@ -424,14 +428,17 @@
             margin-bottom: 0.8rem;
             position: relative;
             padding-left: 1.5rem;
+            font-size: 1.1rem; /* Increased font size */
         }
         
         .experience-description li::before {
-            content: '→';
+            content: '•'; /* Changed from arrow */
             position: absolute;
             left: 0;
             color: #a855f7;
             font-weight: bold;
+            font-size: 1.2rem; /* Adjusted size */
+            line-height: 1; /* Aligns bullet better */
         }
         
         /* Contact section */
@@ -530,10 +537,19 @@
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
+
+            .project-description {
+                min-height: auto; /* Remove min-height on mobile */
+                font-size: 1rem; /* Slightly adjust for mobile */
+            }
             
             .experience-header {
                 flex-direction: column;
                 align-items: flex-start;
+            }
+
+            .experience-description li {
+                font-size: 1rem; /* Slightly adjust for mobile */
             }
             
             .social-links {
@@ -549,6 +565,7 @@
 </head>
 <body>
     <div class="main-container">
+        <!-- Background elements -->
         <div class="particle"></div>
         <div class="particle"></div>
         <div class="particle"></div>
@@ -560,12 +577,14 @@
         <div class="glow-orb orb3"></div>
         
         <div class="content">
+            <!-- Header Section -->
             <header class="header">
                 <h1 class="name">Melisa Sever</h1>
                 <p class="title">Generative AI Engineer & Software Engineer</p>
                 <p class="subtitle">Actively seeking new opportunities to build innovative AI solutions</p>
             </header>
             
+            <!-- About Me Section -->
             <section class="section">
                 <h2 class="section-title">About Me</h2>
                 <p style="font-size: 1.1rem; color: #d1d5db; line-height: 1.7;">
@@ -573,9 +592,11 @@
                 </p>
             </section>
             
+            <!-- Experience Section -->
             <section class="section">
                 <h2 class="section-title">Experience</h2>
                 <div class="experience-timeline">
+                    <!-- Experience Item 1 -->
                     <div class="experience-item">
                         <div class="experience-header">
                             <div>
@@ -591,6 +612,7 @@
                         </ul>
                     </div>
                     
+                    <!-- Experience Item 2 -->
                     <div class="experience-item">
                         <div class="experience-header">
                             <div>
@@ -600,12 +622,13 @@
                             <span class="experience-dates">December 2022 - November 2024</span>
                         </div>
                         <ul class="experience-description">
-                            <li>Developed the Gemini Quizify app for 1,000+ users, using Python and LangChain custom agent chains to transform educational content into real time interactive quizzes.</li>
-                            <li>Deployed and maintained highly available services on Google Cloud Platform (GCP), integrating a CI/CD pipeline with GitHub Actions to ensure 99% uptime and enable rapid feature deployment.</li>
-                            <li>Accelerated development velocity by 40% through the adoption of AI-assisted coding tools and championing best practices in agile sprints and peer code reviews.</li>
+                            <li>Developed an interactive Quiz Builder using Google Gemini, Vertex AI API, LangChain, and Streamlit to generate quizzes from user documents.</li>
+                            <li>Implemented ML pipelines for text embeddings and document parsing, achieving 90%+ quiz accuracy.</li>
+                            <li>Deployed on GCP with CI/CD via GitHub Actions, maintaining 99% uptime and boosting dev velocity by 40%.</li>
                         </ul>
                     </div>
                     
+                    <!-- Experience Item 3 -->
                     <div class="experience-item">
                         <div class="experience-header">
                             <div>
@@ -616,16 +639,18 @@
                         </div>
                         <ul class="experience-description">
                             <li>Launched a React-based doctor appointment app that increased online bookings by 30% and improved user satisfaction by 35%.</li>
-                            <li>Enhanced delivery timelines by 25% through reusable, state-managed React components and optimized asynchronous API calls.</li>
+                            <li>Enhanced delivery timelines by 30% through reusable, state-managed React components and optimized asynchronous API calls.</li>
                             <li>Collaborated in Scrum planning sessions to streamline feature delivery, ensuring alignment with healthcare clients’ operational needs.</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
+            <!-- Featured Projects Section -->
             <section class="section">
                 <h2 class="section-title">Featured Projects</h2>
                 <div class="projects-grid">
+                     <!-- Project 1 -->
                      <div class="project-card">
                         <h3 class="project-title">Decentralized AI Compute Network</h3>
                         <p class="project-description">
@@ -642,6 +667,7 @@
                         </a>
                     </div>
 
+                    <!-- Project 2 -->
                     <div class="project-card">
                         <h3 class="project-title">F1 2025 Race Predictions</h3>
                         <p class="project-description">
@@ -657,6 +683,8 @@
                             View Project →
                         </a>
                     </div>
+                    
+                    <!-- Project 3 -->
                     <div class="project-card">
                         <h3 class="project-title">AI-Driven Threat Detection System</h3>
                         <p class="project-description">
@@ -673,6 +701,7 @@
                         </a>
                     </div>
 
+                    <!-- Project 4 -->
                     <div class="project-card">
                         <h3 class="project-title">Plagiarism Detection System</h3>
                         <p class="project-description">
@@ -689,6 +718,7 @@
                         </a>
                     </div>
 
+                    <!-- Project 5 -->
                     <div class="project-card">
                         <h3 class="project-title">AI-Powered Cybersecurity Threat Detection System</h3>
                         <p class="project-description">
@@ -705,22 +735,7 @@
                         </a>
                     </div>
 
-                    <div class="project-card">
-                        <h3 class="project-title">MindMapGPT: Dynamic Knowledge Visualization</h3>
-                        <p class="project-description">
-                            MindMapGPT leverages GPT models to transform textual information into interactive mind maps, facilitating knowledge exploration and organization. It enables users to visualize complex data and relationships dynamically.
-                        </p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">GPT</span>
-                            <span class="tech-tag">Mind Mapping</span>
-                            <span class="tech-tag">Data Visualization</span>
-                        </div>
-                        <a href="https://github.com/melisasvr/MindMapGPT-Dynamic-Knowledge-Visualization" class="project-link" target="_blank" rel="noopener noreferrer">
-                            View Project →
-                        </a>
-                    </div>
-                    
+                    <!-- Project 6 -->
                     <div class="project-card">
                         <h3 class="project-title">AI-Enhanced Phishing Detection</h3>
                         <p class="project-description">
@@ -737,38 +752,7 @@
                         </a>
                     </div>
                     
-                    <div class="project-card">
-                        <h3 class="project-title">VR Language Learning System</h3>
-                        <p class="project-description">
-                            An immersive VR system to accelerate language acquisition. Users interact with AI-powered characters in realistic scenarios, receiving real-time feedback to improve fluency and confidence.
-                        </p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">VR</span>
-                            <span class="tech-tag">AI</span>
-                            <span class="tech-tag">NLP</span>
-                            <span class="tech-tag">Unity/Python</span>
-                        </div>
-                        <a href="https://github.com/melisasvr/VR-Language-Learning-System" class="project-link" target="_blank" rel="noopener noreferrer">
-                            View Project →
-                        </a>
-                    </div>
-                    
-                    <div class="project-card">
-                        <h3 class="project-title">Real-time Water Quality Monitoring</h3>
-                        <p class="project-description">
-                            A system that monitors water quality using IoT sensors and machine learning. It detects contaminants and predicts potential issues, enabling proactive measures to ensure water safety.
-                        </p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">IoT</span>
-                            <span class="tech-tag">Machine Learning</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Data Analysis</span>
-                        </div>
-                        <a href="https://github.com/melisasvr/Real-Time-Water-Quality-Monitoring-and-Contaminant-Detection-System/tree/main" class="project-link" target="_blank" rel="noopener noreferrer">
-                            View Project →
-                        </a>
-                    </div>
-
+                    <!-- Project 7 -->
                     <div class="project-card">
                         <h3 class="project-title">AI-Agent for DAO Governance</h3>
                         <p class="project-description">
@@ -784,9 +768,62 @@
                             View Project →
                         </a>
                     </div>
+
+                    <!-- New Project 1 -->
+                    <div class="project-card">
+                        <h3 class="project-title">Swarm Robotics Simulation</h3>
+                        <p class="project-description">
+                            A simulation environment for studying the collective behavior of swarm robots. Explores decentralized coordination algorithms for tasks like foraging and area coverage.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Robotics</span>
+                            <span class="tech-tag">AI</span>
+                            <span class="tech-tag">Simulation</span>
+                        </div>
+                        <a href="https://github.com/melisasvr/Swarm-Robotics-Simulation" class="project-link" target="_blank" rel="noopener noreferrer">
+                            View Project →
+                        </a>
+                    </div>
+
+                    <!-- New Project 2 -->
+                    <div class="project-card">
+                        <h3 class="project-title">Collaborative Cobot for Flexible Manufacturing</h3>
+                        <p class="project-description">
+                            Developing an AI-powered collaborative robot (cobot) system designed to adapt to dynamic manufacturing environments, enhancing flexibility and human-robot interaction safely.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Robotics</span>
+                            <span class="tech-tag">AI</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Manufacturing</span>
+                        </div>
+                        <a href="https://github.com/melisasvr/Collaborative-Cobot-for-Flexible-Manufacturing" class="project-link" target="_blank" rel="noopener noreferrer">
+                            View Project →
+                        </a>
+                    </div>
+
+                    <!-- New Project 3 -->
+                    <div class="project-card">
+                        <h3 class="project-title">Autonomous Vital Signs Monitoring System</h3>
+                        <p class="project-description">
+                            An autonomous system that uses computer vision and deep learning to monitor patient vital signs (like heart rate and respiratory rate) remotely and non-intrusively.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">AI</span>
+                            <span class="tech-tag">Computer Vision</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Healthcare</span>
+                        </div>
+                        <a href="https://github.com/melisasvr/Autonomous-Vital-Signs-Monitoring-System" class="project-link" target="_blank" rel="noopener noreferrer">
+                            View Project →
+                        </a>
+                    </div>
+
                 </div>
             </section>
             
+            <!-- Skills Section -->
             <section class="section">
                 <h2 class="section-title">Skills</h2>
                 <div class="skills-grid">
@@ -800,6 +837,7 @@
                             <span class="skill-tag">HTML</span>
                             <span class="skill-tag">CSS</span>
                             <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Angular</span>
                             <span class="skill-tag">TypeScript</span>
                             <span class="skill-tag">React</span>
                             <span class="skill-tag">Node.js</span>
@@ -828,12 +866,14 @@
                             <span class="skill-tag">NLP</span>
                             <span class="skill-tag">TensorFlow</span>
                             <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">Open AI</span>
                         </div>
                     </div>
                     
                     <div class="skill-category">
                         <h3 class="skill-category-title">Frameworks/Tools</h3>
                         <div class="skills-container">
+                            <span class="skill-tag">Bootstrap</span>
                             <span class="skill-tag">Vite.js</span>
                             <span class="skill-tag">Google Cloud Platform</span>
                             <span class="skill-tag">Redis</span>
@@ -847,6 +887,7 @@
                             <span class="skill-tag">Docker</span>
                             <span class="skill-tag">CI/CD</span>
                             <span class="skill-tag">Cypress</span>
+                            <span class="skill-tag">Web3</span>
                         </div>
                     </div>
                     
@@ -865,6 +906,7 @@
                 </div>
             </section>
             
+            <!-- Contact Section -->
             <section class="section">
                 <h2 class="section-title">Contact Me</h2>
                 <div class="contact-content">
@@ -889,6 +931,7 @@
                 </div>
             </section>
             
+            <!-- Footer -->
             <footer class="footer">
                 <p>&copy; 2025 Melisa Sever. Built with modern HTML, CSS & cutting-edge animations.</p>
             </footer>
